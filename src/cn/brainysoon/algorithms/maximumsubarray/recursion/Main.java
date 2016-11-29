@@ -3,7 +3,7 @@ package cn.brainysoon.algorithms.maximumsubarray.recursion;
 import java.util.Scanner;
 
 /*
- * 最大子数组的 递归实现
+ * 最大子数组的 递归实现 时间复杂度 O(nlogn)
  * 首先介绍一下 递归实现的伪代码  //杭电 1003
  *
  * FIND_CROSSING_SUBARRAY(A,low,mid,high)

@@ -1,7 +1,7 @@
 package cn.brainysoon.algorithms.maximumsubarray.nonrecursion;
 
 /*
- *  最大子数组 非递归实现 //动态规划
+ *  最大子数组 非递归实现 //动态规划 时间复杂度 O(n)
  *
  *  FIND_MAXIMUM_SUBARRAY(A,low,high)
  *  sub_sum=-&
