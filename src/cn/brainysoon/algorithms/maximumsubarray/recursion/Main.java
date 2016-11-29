@@ -65,6 +65,12 @@ public class Main {
 
     public static Bean findMaxmumSubarray(int[] A, int low, int high) {
 
+        //work 4.1-4
+        if (A.length == 0) {
+
+            return new Bean(0, 0, 0);
+        }
+
         if (low == high) {
 
             return new Bean(low, high, A[low]);
