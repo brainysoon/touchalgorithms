@@ -66,6 +66,9 @@ public class SafeAlgorithm {
             markSafe[i] = false;
         }
 
+        //后面修复的Bug
+        this.isSafe=false;
+
         findSafeSequence(0);
 
         return this.isSafe;
