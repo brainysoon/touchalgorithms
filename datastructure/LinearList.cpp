@@ -56,6 +56,28 @@ int ListInsert_Sq(SqList &L,int i, int e){
 	
 	return OK;
 }
+
+//在线性表L中删除第i个元素，并用e返回其值 
+int ListDelete_Sq(SqList &L,int i,int &e){
+	
+	if (i<1||i>L.length) return OVERFLOW;		// i的取值范围为 1<=i<=L.length
+	
+	int *p=&(L.elem[i-1]);			//p为被删除的元素
+	
+	e=*p;							//用e返回被删除的元素
+	
+	int *q=&(L.elem[L.length-1]); 	//表尾元素  //或则是  int *q=L.elem+L.length 
+	
+	for (++p; p<=q; ++p){
+		
+		*(p-1)=*p;					//将i元素以后的所有元素统统向前移动一个 总共移动 n-i个 
+	} 
+	
+	--L.length;						//长度-1 
+	
+	return OK;
+}
+
 int main(){
 	
 	//定义一个 数组实现的线性表 
@@ -70,5 +92,18 @@ int main(){
 		ListInsert_Sq(L,i+1,i); 
 		
 		printf("%d %d \n",L.elem[i],L.length); 
+	}
+	
+	//测试 在线性表中删除一个元素 位置1 
+	int e;
+	ListDelete_Sq(L,1,e);
+	
+	//删除的元素 
+	printf("%d\n",e); 
+	
+	//答应删除后线性表 
+	for (int i=0; i<L.length; i++){
+		
+		printf("%d %d\n",L.elem[i],i+1);
 	}
 }
