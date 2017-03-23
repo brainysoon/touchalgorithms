@@ -107,7 +107,7 @@ int LocateElem_Sq(SqList &L,int e,int (* compare)(int,int)){
 	while (i<=L.length&&!(*compare)(*p++,e)) ++i;		//扫描线性表  这一句  很好，，， 
 	
 	if (i<=L.length) return i;			//存在返回 位置 
-	else FALSE;							//不存在返回失败 
+	else return FALSE;					//不存在返回失败 
 } //LocateElem_Sq
 
 int main(){
