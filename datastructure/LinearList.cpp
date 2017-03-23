@@ -78,20 +78,6 @@ int ListDelete_Sq(SqList &L,int i,int &e){
 	return OK;
 }
 
-int LocateElem(SqList &L,int e,int &i){
-	
-	for (int j=0; j<L.length; ++j){
-		
-		if (e==L.elem[j]){
-			
-			i=j+1;
-			return OK;
-		}
-	}
-	
-	return FALSE;
-}
-
 //两个元素比较函数
 int compare(int p,int e){
 	return p==e;
