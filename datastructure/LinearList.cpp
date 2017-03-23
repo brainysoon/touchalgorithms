@@ -78,6 +78,38 @@ int ListDelete_Sq(SqList &L,int i,int &e){
 	return OK;
 }
 
+int LocateElem(SqList &L,int e,int &i){
+	
+	for (int j=0; j<L.length; ++j){
+		
+		if (e==L.elem[j]){
+			
+			i=j+1;
+			return OK;
+		}
+	}
+	
+	return FALSE;
+}
+
+//两个元素比较函数
+int compare(int p,int e){
+	return p==e;
+} //Compare 
+
+//在线性表中查找与e满足 compare条件的元素的位置 未找到则返回0 
+int LocateElem_Sq(SqList &L,int e,int (* compare)(int,int)){
+	
+	int i=1; 			//第一个元素的位置
+	
+	int *p=L.elem;		//第一个元素的指针
+	
+	while (i<=L.length&&!(*compare)(*p++,e)) ++i;		//扫描线性表  这一句  很好，，， 
+	
+	if (i<=L.length) return i;			//存在返回 位置 
+	else FALSE;							//不存在返回失败 
+} //LocateElem_Sq
+
 int main(){
 	
 	//定义一个 数组实现的线性表 
@@ -106,4 +138,10 @@ int main(){
 		
 		printf("%d %d\n",L.elem[i],i+1);
 	}
+	
+	//测试在线性表中查找 e元素
+	int i=LocateElem_Sq(L,78,compare);
+	
+	//查找结果
+	printf("%d\n",i); 
 }
