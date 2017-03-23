@@ -118,8 +118,8 @@ int main(){
 	//初始化这个线性表 
 	InitList_Sq(L);
 	
-	//测试插入200个数据 
-	for (int i=0; i<200; i++){
+	//测试插入20个数据 
+	for (int i=0; i<20; i++){
 	
 		ListInsert_Sq(L,i+1,i); 
 		
@@ -140,7 +140,7 @@ int main(){
 	}
 	
 	//测试在线性表中查找 e元素
-	int i=LocateElem_Sq(L,78,compare);
+	int i=LocateElem_Sq(L,12,compare);
 	
 	//查找结果
 	printf("%d\n",i); 
