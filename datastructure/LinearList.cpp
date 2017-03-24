@@ -96,6 +96,37 @@ int LocateElem_Sq(SqList &L,int e,int (* compare)(int,int)){
 	else return FALSE;					//不存在返回失败 
 } //LocateElem_Sq
 
+//将两个非递减的线性表 a b 归并到  线性表c 并返回归并后的长度 
+int MergeList_Sq(SqList La,SqList Lb,SqList &Lc){
+	
+	//算的归并后的长度 
+	Lc.length=Lc.listsize=La.length+Lb.length;
+	 
+	Lc.elem=(int *)malloc(Lc.listsize*sizeof(int));  	//分配数组 
+	
+	if (!Lc.elem) return OVERFLOW;			//失败 返回  0 
+	
+	int *qa=La.elem;	// 线性表a的首元素地址 
+	int *qb=Lb.elem;	// 线性表b的首元素地址 
+	int *qc=Lc.elem;	// 线性表c首地址 
+	
+	int *pa=&(La.elem[La.length-1]);	//线性表a 尾地址 
+	int *pb=&(Lb.elem[Lb.length-1]);	//线性表b 尾地址 
+	
+	//开始归并 
+	while (qa<=pa&&qb<=pb){
+		
+		if (*qa<=*qb) *qc++=*qa++;
+		else *qc++=*qb++;
+	}
+	
+	//解决不需要归并的  直接  复制 
+	while (qa<=pa) *qc++=*qa++;
+	while (qb<=pb) *qc++=*qb++;
+	 
+	return Lc.length;		//返回长度 
+} //MergeList_Sq 
+
 int main(){
 	
 	//定义一个 数组实现的线性表 
@@ -130,4 +161,35 @@ int main(){
 	
 	//查找结果
 	printf("%d\n",i); 
+	
+	//归并 两个线性表的测试  
+	SqList La;		//线性表a 
+	SqList Lb;		//线性表b 
+	SqList Lc;		//线性表c --用于保存归并后的 
+	
+	//初始化  线性表a b 
+	InitList_Sq(La);
+	InitList_Sq(Lb);
+	
+	//初始化非递减数据 
+	for (int i=0; i<20; i++){
+		
+		ListInsert_Sq(La,i+1,i*2);
+		ListInsert_Sq(Lb,i+1,i*3);
+	}
+	
+	// 打印出来  a b 的数据 
+	for (int i=0; i<20; i++) printf("%d ",La.elem[i]);
+	printf("\n");
+	for (int i=0; i<20; i++) printf("%d ",Lb.elem[i]);
+	printf("\n");
+	
+	//开始合并 
+	MergeList_Sq(La,Lb,Lc);
+	
+	//合并后的结果 
+	for (int i=0; i<Lc.length; i++){
+		
+		printf("%d--> %d\n",i+1,Lc.elem[i]);
+	}
 }
