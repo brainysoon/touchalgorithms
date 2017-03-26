@@ -39,6 +39,33 @@ int ListInsert_L(LinkList &L,int i,int e){
 	return OK;
 }
 
+int DeleteElem_L(LinkList L,int i,int &e){
+	
+	LinkList q=L;		//指向头的指针 
+	int j=0;
+	
+	//查找到 要删除的前一个  元素的指针，且  要删除的元素不为空 
+	while (q->next&&j<i-1){
+		
+		++j;
+		q=q->next;
+	}
+	
+	if (!(q->next)||j>i-1) return ERROR;	//要删除的元素不为空  切  0<=i<=length 
+	
+	LinkList p=q->next;					//删除元素的指针 
+	
+	e=p->data;				//返回元素的值 通过  e 
+	
+	q->next=p->next;		//修改指针  使节点 i 在逻辑上删除 
+	
+	L->data-=1;			//长度-1 
+	
+	free(p);			//释放节点 
+	
+	return OK;
+}
+
 int main(){
 	
 	//创建一个头节点
@@ -56,6 +83,17 @@ int main(){
 	}
 	
 	//打印插入的数据   测试结果 
+	for (LinkList q=L->next;q;q=q->next) 
+	printf("%d--%d\n",q->next,q->data); 
+	
+	//删除  5 个元素
+	int e;
+	DeleteElem_L(L,5,e);
+	
+	//打印删除的元素 
+	printf("%d\n",e);
+	
+	//打印删除后的线性表 
 	for (LinkList q=L->next;q;q=q->next) 
 	printf("%d--%d\n",q->next,q->data); 
 }
