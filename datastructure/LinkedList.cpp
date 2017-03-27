@@ -66,6 +66,26 @@ int DeleteElem_L(LinkList L,int i,int &e){
 	return OK;
 }
 
+//查询第i个元素，并用e返回 
+int GetElem_L(LinkList L,int i,int &e){
+	
+	LinkList q=L->next;		//第一个节点的指针 
+	int j=1;				//计数器，计数第一个节点 
+	
+	//找到第i个元素 ，顺序向后查找，直到第i个元素，或者为空 
+	while (q&&j<i){
+		
+		++j;
+		q=q->next;
+	}
+	
+	if (!q&&j>i) return ERROR;		//i的值是否合法   1<=i<=L.length 
+	
+	e=q->data;		//返回查找的值 
+	
+	return OK;
+}//GetElem_L 
+
 int main(){
 	
 	//创建一个头节点
@@ -96,4 +116,11 @@ int main(){
 	//打印删除后的线性表 
 	for (LinkList q=L->next;q;q=q->next) 
 	printf("%d--%d\n",q->next,q->data); 
+	
+	//测试查找第i个元素 
+	int elem;
+	GetElem_L(L,3,elem);
+	
+	//查找结构 
+	printf("%d \n",e);
 }
