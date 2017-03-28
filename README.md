@@ -15,4 +15,6 @@
 
 #### 数组实现
 1. [线性表数组实现](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/LinearList.cpp)
-2. [线性表的链式实现](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/LinkedList.cpp)
+
+#### 链式实现
+1. [线性表的链式实现](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/LinkedList.cpp)
