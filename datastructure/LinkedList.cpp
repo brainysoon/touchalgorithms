@@ -86,6 +86,32 @@ int GetElem_L(LinkList L,int i,int &e){
 	return OK;
 }//GetElem_L 
 
+//逆位输入n个元素的值，建立带头节点的单链表 
+int CreateList_L(LinkList &L,int n){
+	
+	L=(LinkList)malloc(sizeof(LNode));		//创建头节点 
+	if (!L) return ERROR;
+	
+	L->next=NULL;		//给头节点初始化 
+	L->data=0;
+	
+	LinkList p=NULL;	//新节点指针 
+	
+	while (n--){
+
+		p=(LinkList)malloc(sizeof(LNode));		//生成新节点 
+		if (!p) return ERROR;
+		
+		scanf("%d",&p->data);			//输入新节点数据 
+
+		p->next=L->next;			//插入到表头 
+		L->next=p;
+		
+		L->data+=1;			//长度+1 
+	}
+	return OK;
+}
+
 int main(){
 	
 	//创建一个头节点
@@ -123,4 +149,12 @@ int main(){
 	
 	//查找结构 
 	printf("%d \n",e);
+	
+	//尾插法 创建一个n个元素的单链表
+	LinkList mL;
+	CreateList_L(mL,4);
+	
+	//打印创建的单链表 
+	for (LinkList q=mL->next; q; q=q->next)
+	printf("%d---%d\n",q->next,q->data);
 }
