@@ -183,7 +183,7 @@ int main(){
 	//查找结构 
 	printf("%d \n",e);
 	
-	//尾插法 创建一个n个元素的单链表
+	//逆序 头插法 创建一个n个元素的单链表
 	LinkList mL;
 	CreateList_L(mL,4);
 	
