@@ -112,6 +112,39 @@ int CreateList_L(LinkList &L,int n){
 	return OK;
 }
 
+int MergeList_L(LinkList &La,LinkList &Lb,LinkList &Lc){
+	
+	LinkList qa=La->next;		//单链表a的第一个元素 
+	LinkList qb=Lb->next;		//单链表b的第一个元素 
+	
+	LinkList qc=La;				//单链表c用单链表a的头节点作为头节点 
+	Lc=La;						 
+	
+	//归并单链表a和单链表b 
+	while (qa&&qb){
+		
+		if (qa->data<=qb->data){
+			
+			qc->next=qa;		//首先qc的下一个元素为qa，  
+			qc=qa;				//单链表c指针右移， 
+			qa=qa->next;		//单链表a指针右移 
+		}else{
+			
+			qc->next=qb;
+			qc=qb;
+			qb=qb->next;
+		}
+	}
+	
+	qc->next=qa?qa:qb;		//不用归并的直接链接到单链表c后面 
+	
+	Lc->data=La->data+Lb->data;		//长度等于两个单链表的长度之和 
+	
+	free(Lb);			//释放单链表b的头节点 
+	
+	return OK;
+}//MergeList_L
+
 int main(){
 	
 	//创建一个头节点
@@ -157,4 +190,16 @@ int main(){
 	//打印创建的单链表 
 	for (LinkList q=mL->next; q; q=q->next)
 	printf("%d---%d\n",q->next,q->data);
+	
+	//合并之前长度
+	printf("Length:%d %d\n",L->data,mL->data);
+	
+	//将两个单链表合并
+	LinkList Lc;
+	MergeList_L(L,mL,Lc); 
+	
+	//打印合并过后的单链表
+	printf("Length:%d\n",Lc->data);
+	for (LinkList q=Lc->next;q;q=q->next)
+	printf("%d++%d\n",q->next,q->data); 
 }
