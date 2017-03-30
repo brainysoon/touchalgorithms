@@ -14,7 +14,7 @@
 ### 线性表
 
 #### 数组实现
-1. [线性表数组实现](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/LinearList.cpp)
+1. [顺序表](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/LinearList.cpp)
 
 #### 链式实现
 1. [单链表](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/LinkedList.cpp)
