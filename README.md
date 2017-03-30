@@ -18,3 +18,4 @@
 
 #### 链式实现
 1. [线性表的链式实现](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/LinkedList.cpp)
+2. [静态链表](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/SLinkList.cpp)
