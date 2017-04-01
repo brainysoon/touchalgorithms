@@ -32,6 +32,15 @@ int Malloc_SL(SLinkList &space){
 	return i;			//返回提取节点的下标 
 }//Malloc_SL
 
+//将下表为k的空闲节点回收到备用链表 
+void Free_SL(SLinkList &space,int k){
+	 
+	space[k].cur=space[0].cur;		//回收 
+	space[0].cur=k;
+	
+	return;
+} //Free_SL 
+
 int main(){
 	
 	//初始化一个静态链表 
@@ -45,5 +54,6 @@ int main(){
 	
 	//从备用链表里面提取一个节点
 	int i=Malloc_SL(SL);
-	printf("BackUP:%d\n",i); 
+	printf("BackUP:%d\n",i);
+	
 } 
