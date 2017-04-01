@@ -21,7 +21,7 @@ int InitSpace_SL(SLinkList &space){
 	return OK; 
 } 
 
-//从备用链表里面提取一个节点，入股为空 则返回0 否则返回节点下标 
+//从备用链表里面提取一个节点，如果为空 则返回0 否则返回节点下标 
 int Malloc_SL(SLinkList &space){
 	
 	int i=space[0].cur;		//备用链表的第一个元素 
