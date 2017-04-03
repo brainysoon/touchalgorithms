@@ -19,3 +19,4 @@
 #### 链式实现
 1. [单链表](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/LinkedList.cpp)
 2. [静态链表](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/SLinkList.cpp)
+3. [双向链表](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/DuLinkList.cpp)
