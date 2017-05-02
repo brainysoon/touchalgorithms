@@ -56,7 +56,10 @@ int checkType(char identy[],int type){
 			//如果不存在 则保存该字符串
 			if (labelLength<LENGTH_MAX){
 				
-				labels[labelLength++]=identy;
+				labels[labelLength]=(char *)malloc(sizeof(identy));
+				strcpy(labels[labelLength],identy);
+				labelLength++;
+				
 				return labelLength;
 			} else{
 				return ERROR;
@@ -67,7 +70,7 @@ int checkType(char identy[],int type){
 			//检查是否存在
 			for (int i=0; i<unsignIntLength; i++){
 				
-				if (strcmp(identy,unsignInts[i])){
+				if (strcmp(identy,unsignInts[i])==COMPARE_OK){
 					
 					return i+1;
 				}
@@ -76,7 +79,9 @@ int checkType(char identy[],int type){
 			//添加到末尾
 			if (unsignIntLength<LENGTH_MAX){
 				
-				unsignInts[unsignIntLength++]=identy;
+				unsignInts[unsignIntLength]=(char *)malloc(sizeof(identy));
+				strcpy(unsignInts[unsignIntLength],identy);
+				unsignIntLength++;
 				
 				return unsignIntLength;
 			} else{
