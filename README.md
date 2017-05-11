@@ -25,3 +25,9 @@
 
 #### 词法分析
 1. [C语言简单实现](https://github.com/brainysoon/touchalgorithms/blob/master/complieprinciple/wordanalyze.cpp)
+
+### 搜索
+
+#### 广度优先搜索
+1. [推箱子](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/QueueSearchPushBox.cpp)
+2. [连连看](https://github.com/brainysoon/touchalgorithms/blob/master/datastructure/QueueSearchPop.cpp)
